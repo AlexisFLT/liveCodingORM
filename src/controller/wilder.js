@@ -13,4 +13,15 @@ module.exports = {
                 res.send("Error while creating wilder")
             });
     },
+    read: (req,res) => {
+        dataSource
+            .getRepository(Wilder)
+            .find(req.body)
+            .then(() => {
+                res.send(req.body);
+        })
+        .catch(() => {
+            res.send("Error while finding wilders")
+        });
+    }
 };

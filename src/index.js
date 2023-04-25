@@ -6,11 +6,14 @@ const app = express();
 
 app.use(express.json()); // autorisation pour exécuter express sans crash
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
+// app.get("/", (req, res) => {
+//     res.send("Hello World");
+// });
 
 app.post("/api/wilder", wilderController.create);
+app.get("/api/wilder", wilderController.read);
+// app.put("/api/wilder/:id", wilderController.update);
+// app.delete("/api/wilder/:id", wilderController.delete);
 
 const start = async () => {
     await dataSource.initialize();
