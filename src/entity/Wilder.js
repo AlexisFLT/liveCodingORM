@@ -1,4 +1,4 @@
-const EntitySchema = require ("typeorm").EntitySchema;
+const EntitySchema = require("typeorm").EntitySchema;
 
 module.exports = new EntitySchema({
     name: "Wilder",
@@ -11,13 +11,9 @@ module.exports = new EntitySchema({
         name: {
             type: "text",
         },
-    },
-    relations: {
-        skills: {
-            target: "Skill",
-            type: "many-to-many",
-            joinTable: true,
-            eager: true,
-        },
+        city: {
+            type: "text",
+            nullable: true,
+        }
     },
 });
